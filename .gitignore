@@ -1,0 +1,17 @@
+﻿# Mircea's standard .gitignore
+
+*.opensdf
+*.sdf
+*.suo
+*.obj
+*.bak
+*.user
+build/
+*.ipch
+.vs/
+/lib
+
+#These are created from the downloaded amalgamation
+src/
+/include/sqlite3/sqlite3.h
+/include/sqlite3/sqlite3ex.h

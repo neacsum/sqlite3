@@ -1,0 +1,8 @@
+{
+  "name": "sqlite3",
+  "git": "git@bitbucket.org:neacsum/sqlite3.git",
+  "build": [
+    {"cmd": "cmake", "args": ["--workflow", "--preset=default"]},
+    {"cmd": "cmake", "args": ["--workflow", "--preset=x86"]}
+    ]
+}
