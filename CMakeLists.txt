@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.25)
 set (DEV_BIN "$ENV{DEV_ROOT}/bin")
 
 # Amalgamation file name
-set (SQLITENAME sqlite-amalgamation-3410100)
+set (SQLITENAME sqlite-amalgamation-3410200)
 
 project (sqlite3)
 
