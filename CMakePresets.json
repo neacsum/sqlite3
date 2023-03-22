@@ -1,0 +1,75 @@
+{
+  "version": 6,
+  "configurePresets":[
+    {
+      "name": "x64",
+      "displayName": "x64 Config",
+      "binaryDir": "${sourceDir}/build/x64"
+    },
+    {
+      "name": "x86",
+      "architecture": {
+        "value": "win32"
+      },
+      "binaryDir": "${sourceDir}/build/x86"
+    }
+  ],
+
+  "buildPresets":[
+    {
+      "name": "debug_x64",
+      "configurePreset": "x64"
+    },
+    {
+      "name": "release_x64",
+      "configurePreset": "x64",
+      "configuration": "Release"
+    },
+    {
+      "name": "debug_x86",
+      "configurePreset": "x86"
+    },
+    {
+      "name": "release_x86",
+      "configurePreset": "x86",
+      "configuration": "Release"
+    }
+  ],
+
+  "workflowPresets":[
+    {
+      "name": "default",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "x64"
+        },
+        {
+          "type": "build",
+          "name": "debug_x64"
+        },
+        {
+          "type": "build",
+          "name": "release_x64"
+        }
+      ]
+    },
+    {
+      "name": "x86",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "x86"
+        },
+        {
+          "type": "build",
+          "name": "debug_x86"
+        },
+        {
+          "type": "build",
+          "name": "release_x86"
+        }
+      ]
+    }
+  ]
+}
