@@ -8,6 +8,7 @@
     },
     {
       "name": "x86",
+      "displayName": "x86 Config",
       "architecture": {
         "value": "win32"
       },
@@ -18,7 +19,8 @@
   "buildPresets":[
     {
       "name": "debug_x64",
-      "configurePreset": "x64"
+      "configurePreset": "x64",
+      "configuration": "Debug"
     },
     {
       "name": "release_x64",
@@ -27,7 +29,8 @@
     },
     {
       "name": "debug_x86",
-      "configurePreset": "x86"
+      "configurePreset": "x86",
+      "configuration": "Debug"
     },
     {
       "name": "release_x86",
@@ -38,7 +41,33 @@
 
   "workflowPresets":[
     {
-      "name": "default",
+      "name": "release_x64",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "x64"
+        },
+        {
+          "type": "build",
+          "name": "release_x64"
+        }
+      ]
+    },
+    {
+      "name": "debug_x64",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "x64"
+        },
+        {
+          "type": "build",
+          "name": "debug_x64"
+        }
+      ]
+    },
+    {
+      "name": "all_x64",
       "steps": [
         {
           "type": "configure",
@@ -55,7 +84,7 @@
       ]
     },
     {
-      "name": "x86",
+      "name": "all_x86",
       "steps": [
         {
           "type": "configure",
