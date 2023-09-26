@@ -1,0 +1,23 @@
+name: Build
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:      
+      - name: Get CPM
+        uses: engineerd/configurator@v0.0.10
+        with:
+          name: cpm.exe
+          url: https://github.com/neacsum/cpm/releases/latest/download/cpm.exe
+      
+      - name: Build
+        run: cpm -v --proto https -u https://github.com/neacsum/sqlite3 -r $HOME sqlite3
