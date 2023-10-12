@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.25)
 set (DEV_BIN "$ENV{DEV_ROOT}/bin")
 
 # Amalgamation file name
-set (SQLITENAME sqlite-amalgamation-3410200)
+set (SQLITENAME sqlite-amalgamation-3430200)
 
 project (sqlite3)
 
@@ -11,10 +11,11 @@ project (sqlite3)
 set (SQLITE_AMALGAMATION_URI "https://www.sqlite.org/2023/${SQLITENAME}.zip")
 set (SQLITE_AMALGAMATION_FILE ${CMAKE_SOURCE_DIR}/build/${SQLITENAME}.zip)
 if (NOT EXISTS ${SQLITE_AMALGAMATION_FILE})
+  message ("Downloading ${SQLITE_AMALGAMATION_FILE} from ${SQLITE_AMALGAMATION_URI}")
   file (DOWNLOAD ${SQLITE_AMALGAMATION_URI} ${SQLITE_AMALGAMATION_FILE})
   file (ARCHIVE_EXTRACT INPUT ${SQLITE_AMALGAMATION_FILE})
   configure_file (${CMAKE_CURRENT_BINARY_DIR}/${SQLITENAME}/sqlite3.h ${CMAKE_SOURCE_DIR}/include/sqlite3/sqlite3.h COPYONLY)
-  configure_file (${CMAKE_CURRENT_BINARY_DIR}/${SQLITENAME}/sqlite3ext.h ${CMAKE_SOURCE_DIR}/include/sqlite3/sqlite3ex.h COPYONLY)
+  configure_file (${CMAKE_CURRENT_BINARY_DIR}/${SQLITENAME}/sqlite3ext.h ${CMAKE_SOURCE_DIR}/include/sqlite3/sqlite3ext.h COPYONLY)
   configure_file (${CMAKE_CURRENT_BINARY_DIR}/${SQLITENAME}/sqlite3.c ${CMAKE_SOURCE_DIR}/src/sqlite3.c COPYONLY)
   configure_file (${CMAKE_CURRENT_BINARY_DIR}/${SQLITENAME}/shell.c ${CMAKE_SOURCE_DIR}/src/shell.c COPYONLY)
 endif ()
@@ -23,9 +24,6 @@ include_directories (include/sqlite3)
 
 # Build SQLITE.DLL library
 add_library (sqlite SHARED src/sqlite3.c)
-set_target_properties (sqlite PROPERTIES
-  COMPILE_DEFINITIONS "SQLITE_API=__declspec(dllexport)"
-)
 
 # Build SQLITE3.LIB static libary
 add_library (sqlite3 STATIC src/sqlite3.c)

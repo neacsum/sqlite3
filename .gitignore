@@ -12,6 +12,7 @@ build/
 /lib
 
 #These are created from the downloaded amalgamation
-src/
-/include/sqlite3/sqlite3.h
-/include/sqlite3/sqlite3ex.h
+src/sqlite3.c
+src/shell.c
+include/sqlite3/sqlite3.h
+include/sqlite3/sqlite3ext.h

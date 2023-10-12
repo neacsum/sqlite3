@@ -1,0 +1,35 @@
+<Project DefaultTargets="lib;dll;cli">  
+    <PropertyGroup>
+      <SQLiteVersion>3430200</SQLiteVersion>
+      <SQLiteName>sqlite-amalgamation-3430200</SQLiteName>
+      <SQLiteUrl>https://www.sqlite.org/2023/$(SQLiteName).zip</SQLiteUrl>
+    </PropertyGroup>
+
+    <Target Name="DownloadSQLite" BeforeTargets="lib">
+        <DownloadFile SourceUrl="$(SQLiteUrl)" DestinationFolder="$(MSBuildProjectDirectory)\build" />
+        <Unzip SourceFiles="build\$(SQLiteName).zip" DestinationFolder="build" />
+        <Copy SourceFiles="build\$(SQLiteName)\sqlite3.c" DestinationFolder="src" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="build\$(SQLiteName)\shell.c" DestinationFolder="src" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="build\$(SQLiteName)\sqlite3.h" DestinationFolder="include\sqlite3" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="build\$(SQLiteName)\sqlite3ext.h" DestinationFolder="include\sqlite3" SkipUnchangedFiles="true" />
+    </Target>  
+
+    <Target Name="lib">
+        <MSBuild Projects="src/lib.vcxproj" Properties="SolutionDir=..\;Configuration=Debug;Platform=x64"/>  
+        <MSBuild Projects="src/lib.vcxproj" Properties="SolutionDir=..\;Configuration=Release;Platform=x64"/> 
+        <MSBuild Projects="src/lib.vcxproj" Properties="SolutionDir=..\;Configuration=Debug;Platform=x86"/>  
+        <MSBuild Projects="src/lib.vcxproj" Properties="SolutionDir=..\;Configuration=Release;Platform=x86"/>
+    </Target>
+    <Target Name="dll">
+        <MSBuild Projects="src/dll.vcxproj" Properties="SolutionDir=..\;Configuration=Debug;Platform=x64"/>  
+        <MSBuild Projects="src/dll.vcxproj" Properties="SolutionDir=..\;Configuration=Release;Platform=x64"/> 
+        <MSBuild Projects="src/dll.vcxproj" Properties="SolutionDir=..\;Configuration=Debug;Platform=x86"/>  
+        <MSBuild Projects="src/dll.vcxproj" Properties="SolutionDir=..\;Configuration=Release;Platform=x86"/>
+    </Target>
+    <Target Name="cli" DependsOnTargets="dll">
+        <MSBuild Projects="src/cli.vcxproj" Properties="SolutionDir=..\;Configuration=Debug;Platform=x64"/>  
+        <MSBuild Projects="src/cli.vcxproj" Properties="SolutionDir=..\;Configuration=Release;Platform=x64"/> 
+        <MSBuild Projects="src/cli.vcxproj" Properties="SolutionDir=..\;Configuration=Debug;Platform=x86"/>  
+        <MSBuild Projects="src/cli.vcxproj" Properties="SolutionDir=..\;Configuration=Release;Platform=x86"/>
+    </Target>
+</Project>
