@@ -3,12 +3,12 @@ cmake_minimum_required(VERSION 3.25)
 set (DEV_BIN "$ENV{DEV_ROOT}/bin")
 
 # Amalgamation file name
-set (SQLITENAME sqlite-amalgamation-3430200)
+set (SQLITENAME sqlite-amalgamation-3450200)
 
 project (sqlite3)
 
 # Dwonload and extract SQLite source files
-set (SQLITE_AMALGAMATION_URI "https://www.sqlite.org/2023/${SQLITENAME}.zip")
+set (SQLITE_AMALGAMATION_URI "https://www.sqlite.org/2024/${SQLITENAME}.zip")
 set (SQLITE_AMALGAMATION_FILE ${CMAKE_SOURCE_DIR}/build/${SQLITENAME}.zip)
 if (NOT EXISTS ${SQLITE_AMALGAMATION_FILE})
   message ("Downloading ${SQLITE_AMALGAMATION_FILE} from ${SQLITE_AMALGAMATION_URI}")
