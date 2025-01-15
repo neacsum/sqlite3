@@ -1,8 +1,8 @@
 <Project DefaultTargets="lib;dll;cli">  
     <PropertyGroup>
-      <SQLiteVersion>3470100</SQLiteVersion>
-      <SQLiteName>sqlite-amalgamation-3470100</SQLiteName>
-      <SQLiteUrl>https://www.sqlite.org/2024/$(SQLiteName).zip</SQLiteUrl>
+      <SQLiteVersion>3480000</SQLiteVersion>
+      <SQLiteName>sqlite-amalgamation-3480000</SQLiteName>
+      <SQLiteUrl>https://www.sqlite.org/2025/$(SQLiteName).zip</SQLiteUrl>
     </PropertyGroup>
 
     <Target Name="DownloadSQLite" BeforeTargets="lib">
