@@ -1,7 +1,7 @@
 <Project DefaultTargets="lib;dll;cli">  
     <PropertyGroup>
-      <SQLiteVersion>3480000</SQLiteVersion>
-      <SQLiteName>sqlite-amalgamation-3480000</SQLiteName>
+      <SQLiteVersion>3490100</SQLiteVersion>
+      <SQLiteName>sqlite-amalgamation-$(SQLiteVersion)</SQLiteName>
       <SQLiteUrl>https://www.sqlite.org/2025/$(SQLiteName).zip</SQLiteUrl>
     </PropertyGroup>
 
