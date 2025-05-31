@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.25)
 
 set (DEV_BIN "$ENV{DEV_ROOT}/bin")
+set(CMAKE_EXPORT_COMPILE_COMMANDS true)
 
 # Amalgamation file name
-set (SQLITENAME sqlite-amalgamation-3490100)
+set (SQLITENAME sqlite-amalgamation-3500000)
 
 project (sqlite3)
 
@@ -37,6 +38,10 @@ add_executable (shell src/shell.c src/sqlite3.c)
 set_target_properties (shell PROPERTIES
   OUTPUT_NAME sqlite3
 )
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  target_link_libraries (shell m)
+endif ()
+
 
 # Copy 64-bit SQLite shell and DLL to ${DEV_ROOT}/bin folder
 if (CMAKE_VS_PLATFORM_NAME MATCHES "x64" )
