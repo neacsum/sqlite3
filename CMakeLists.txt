@@ -4,7 +4,7 @@ set (DEV_BIN "$ENV{DEV_ROOT}/bin")
 set(CMAKE_EXPORT_COMPILE_COMMANDS true)
 
 # Amalgamation file name
-set (SQLITENAME sqlite-amalgamation-3500000)
+set (SQLITENAME sqlite-amalgamation-3510200)
 
 project (sqlite3)
 
