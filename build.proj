@@ -2,7 +2,7 @@
     <PropertyGroup>
       <SQLiteVersion>3510200</SQLiteVersion>
       <SQLiteName>sqlite-amalgamation-$(SQLiteVersion)</SQLiteName>
-      <SQLiteUrl>https://www.sqlite.org/2025/$(SQLiteName).zip</SQLiteUrl>
+      <SQLiteUrl>https://www.sqlite.org/2026/$(SQLiteName).zip</SQLiteUrl>
     </PropertyGroup>
 
     <Target Name="DownloadSQLite" BeforeTargets="lib">

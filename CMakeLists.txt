@@ -9,7 +9,7 @@ set (SQLITENAME sqlite-amalgamation-3510200)
 project (sqlite3)
 
 # Dwonload and extract SQLite source files
-set (SQLITE_AMALGAMATION_URI "https://www.sqlite.org/2025/${SQLITENAME}.zip")
+set (SQLITE_AMALGAMATION_URI "https://www.sqlite.org/2026/${SQLITENAME}.zip")
 set (SQLITE_AMALGAMATION_FILE ${CMAKE_SOURCE_DIR}/build/${SQLITENAME}.zip)
 if (NOT EXISTS ${SQLITE_AMALGAMATION_FILE})
   message ("Downloading ${SQLITE_AMALGAMATION_FILE} from ${SQLITE_AMALGAMATION_URI}")
