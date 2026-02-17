@@ -1,4 +1,4 @@
-<Project DefaultTargets="lib;dll;cli">  
+<Project DefaultTargets="lib;cli">  
     <PropertyGroup>
       <SQLiteVersion>3510200</SQLiteVersion>
       <SQLiteName>sqlite-amalgamation-$(SQLiteVersion)</SQLiteName>
@@ -26,7 +26,7 @@
         <MSBuild Projects="src/dll.vcxproj" Properties="SolutionDir=..\;Configuration=Debug;Platform=x86"/>  
         <MSBuild Projects="src/dll.vcxproj" Properties="SolutionDir=..\;Configuration=Release;Platform=x86"/>
     </Target>
-    <Target Name="cli" DependsOnTargets="dll">
+    <Target Name="cli" DependsOnTargets="lib">
         <MSBuild Projects="src/cli.vcxproj" Properties="SolutionDir=..\;Configuration=Debug;Platform=x64"/>  
         <MSBuild Projects="src/cli.vcxproj" Properties="SolutionDir=..\;Configuration=Release;Platform=x64"/> 
         <MSBuild Projects="src/cli.vcxproj" Properties="SolutionDir=..\;Configuration=Debug;Platform=x86"/>  

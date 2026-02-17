@@ -2,7 +2,7 @@
   "name": "sqlite3",
   "git": "git@bitbucket.org:neacsum/sqlite3.git",
   "build": [
-    {"os":"windows", "cmd": "build.bat", "args": ["lib"]},
+    {"os":"windows", "cmd": "build.bat"},
     {"os":"linux", "cmd": "cmake", "args": ["--workflow", "--preset=release_x64"]}
     ]
 }
