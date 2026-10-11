@@ -1,0 +1,11 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="src/cli.vcxproj">
+    <BuildDependency Project="src/lib.vcxproj" />
+  </Project>
+  <Project Path="src/dll.vcxproj" />
+  <Project Path="src/lib.vcxproj" />
+</Solution>
