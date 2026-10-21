@@ -1,6 +1,6 @@
 <Project DefaultTargets="lib;cli">  
     <PropertyGroup>
-      <SQLiteVersion>3540000</SQLiteVersion>
+      <SQLiteVersion>3540100</SQLiteVersion>
       <SQLiteName>sqlite-amalgamation-$(SQLiteVersion)</SQLiteName>
       <SQLiteUrl>https://www.sqlite.org/2026/$(SQLiteName).zip</SQLiteUrl>
     </PropertyGroup>
